@@ -1,0 +1,15 @@
+{
+  "name": "aagc-dynamodb-local",
+  "version": "1.0.0",
+  "description": "DynamoDB Local helper scripts for AAGC booking system",
+  "main": "create-tables.js",
+  "scripts": {
+    "create-tables": "node create-tables.js",
+    "seed": "node seed-bookings.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.670.0",
+    "@aws-sdk/lib-dynamodb": "^3.670.0",
+    "uuid": "^9.0.1"
+  }
+}
