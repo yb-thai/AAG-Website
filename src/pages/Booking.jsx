@@ -8,8 +8,7 @@ const Booking = () => {
         <div className="section-inner">
           <h1 className="page-title">Book Your Ride</h1>
           <p className="page-subtitle">
-            Choose your time, pickup details, and group size. Your ride will be
-            confirmed instantly.
+            Choose your time, and provide pickup details. Your ride will be confirmed within your email.
           </p>
         </div>
       </section>

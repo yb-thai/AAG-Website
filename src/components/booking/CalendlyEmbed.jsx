@@ -5,7 +5,7 @@ const CalendlyEmbed = () => {
 
   useEffect(() => {
     const scriptSrc = "https://assets.calendly.com/assets/external/widget.js";
-    const calendlyUrl = "https://calendly.com/ybthai98/ride-booking";
+    const calendlyUrl = "https://calendly.com/aagbookingmanagement/aag-booking";
 
     function initWidget() {
       if (window.Calendly && containerRef.current) {

@@ -1,17 +1,38 @@
+/* ===========================
+   AAG MEDICAL TRANSPORT THEME
+   White + Blue Professional UI
+   =========================== */
+
 :root {
-  --bg: #050709;
-  --bg-alt: #0b0f16;
-  --card: #111827;
-  --accent: #38bdf8;
-  --accent-soft: rgba(56, 189, 248, 0.2);
-  --text: #e5e7eb;
-  --text-soft: #9ca3af;
-  --border: #1f2933;
+  /* Brand Colors */
+  --primary: #1c6dd0;
+  --primary-dark: #0e4ea3;
+  --primary-soft: #e8f2ff;
+
+  --accent: #0bb3bf;
+
+  /* Background */
+  --bg: #ffffff;
+  --bg-alt: #f3f7fc;
+  --card: #ffffff;
+
+  /* Text */
+  --text: #1b2330;
+  --text-soft: #6f7a8c;
+
+  /* Borders */
+  --border: #d9e3f2;
+  --border-strong: #b2c4dd;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(28, 109, 208, 0.08);
+
+  /* Radius */
   --radius-lg: 18px;
   --radius-xl: 24px;
-  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
 }
 
+/* Reset */
 *,
 *::before,
 *::after {
@@ -29,7 +50,8 @@ body,
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+
+  background: var(--bg-alt);
   color: var(--text);
 }
 
@@ -55,18 +77,20 @@ body {
 }
 
 .section-alt {
-  background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+  background: var(--bg-alt);
 }
 
-/* Navbar */
+/* ===========================
+   NAVBAR
+   =========================== */
 
 .navbar {
   position: sticky;
   top: 0;
   z-index: 40;
   backdrop-filter: blur(16px);
-  background: linear-gradient(to bottom, rgba(3, 7, 18, 0.96), transparent);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--border);
 }
 
 .navbar-inner {
@@ -86,10 +110,10 @@ body {
 
 .logo-main {
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .logo-sub {
@@ -100,7 +124,6 @@ body {
 .navbar-links {
   display: flex;
   gap: 0.75rem;
-  align-items: center;
 }
 
 .nav-link {
@@ -109,26 +132,27 @@ body {
   font-size: 0.9rem;
   padding: 0.45rem 0.8rem;
   border-radius: 999px;
-  transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+  transition: all 0.18s ease;
 }
 
 .nav-link:hover {
-  background: rgba(15, 23, 42, 0.9);
-  color: var(--text);
-  transform: translateY(-1px);
+  background: var(--primary-soft);
+  color: var(--primary-dark);
 }
 
 .nav-link-primary {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border: 1px solid rgba(56, 189, 248, 0.8);
+  background: var(--primary);
+  color: white;
+  border: 1px solid var(--primary-dark);
 }
 
 .nav-link-primary:hover {
-  background: rgba(56, 189, 248, 0.22);
+  background: var(--primary-dark);
 }
 
-/* Buttons */
+/* ===========================
+   BUTTONS
+   =========================== */
 
 .btn {
   display: inline-flex;
@@ -141,32 +165,32 @@ body {
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.12s ease, box-shadow 0.12s ease,
-    background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  transition: 0.15s ease;
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: #020617;
-  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.3);
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 8px 20px rgba(28, 109, 208, 0.22);
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 40px rgba(56, 189, 248, 0.45);
+  background: var(--primary-dark);
 }
 
 .btn-outline {
-  background: transparent;
-  color: var(--text);
-  border-color: rgba(148, 163, 184, 0.8);
+  background: white;
+  color: var(--primary-dark);
+  border-color: var(--primary);
 }
 
 .btn-outline:hover {
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--primary-soft);
 }
 
-/* Hero */
+/* ===========================
+   HERO SECTION
+   =========================== */
 
 .hero-inner {
   display: grid;
@@ -178,15 +202,15 @@ body {
 .hero-title {
   font-size: clamp(2rem, 4vw, 2.8rem);
   line-height: 1.1;
-  margin: 0 0 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .hero-highlight {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .hero-subtitle {
-  margin: 0 0 1.5rem;
+  margin-bottom: 1.5rem;
   color: var(--text-soft);
   max-width: 32rem;
 }
@@ -204,31 +228,31 @@ body {
 }
 
 .hero-card {
-  background: radial-gradient(circle at top left, #1d283a, #020617);
+  background: white;
   border-radius: var(--radius-xl);
   padding: 1.8rem;
   box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--border);
 }
 
 .hero-card-title {
   font-size: 1rem;
   font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 0.4rem;
 }
 
 .hero-card-body {
   font-size: 0.9rem;
   color: var(--text-soft);
-  margin-bottom: 1rem;
 }
 
-/* Sections */
+/* ===========================
+   SECTION TITLES & CARDS
+   =========================== */
 
 .section-title {
   font-size: 1.6rem;
-  margin: 0 0 1.75rem;
+  margin-bottom: 1.75rem;
+  color: var(--text);
 }
 
 .cards-grid {
@@ -237,10 +261,10 @@ body {
 }
 
 .card {
-  background: var(--card);
+  background: white;
   border-radius: var(--radius-lg);
   padding: 1.4rem;
-  border: 1px solid rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
 
@@ -250,15 +274,18 @@ body {
 }
 
 .card-title {
-  margin: 0 0 0.5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .card-text {
-  margin: 0;
-  font-size: 0.9rem;
   color: var(--text-soft);
 }
+
+/* ===========================
+   HOW IT WORKS STEPS
+   =========================== */
 
 .steps-grid {
   display: grid;
@@ -268,48 +295,44 @@ body {
 .step-card {
   border-radius: var(--radius-lg);
   padding: 1.2rem;
-  background: linear-gradient(
-    to right,
-    rgba(15, 23, 42, 0.9),
-    rgba(15, 23, 42, 0.4)
-  );
-  border: 1px solid rgba(30, 64, 175, 0.7);
+  background: var(--primary-soft);
+  border: 1px solid var(--primary);
 }
 
 .step-title {
-  margin: 0 0 0.4rem;
+  margin-bottom: 0.4rem;
   font-size: 0.95rem;
+  color: var(--primary-dark);
+  font-weight: 600;
 }
 
 .step-text {
-  margin: 0;
-  font-size: 0.88rem;
   color: var(--text-soft);
 }
 
-.section-cta {
-  margin-top: 1.5rem;
-}
-
-/* Calendly */
+/* ===========================
+   CALENDLY EMBED
+   =========================== */
 
 .calendly-wrapper {
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(15, 23, 42, 0.9);
-  background: #020617;
+  border: 1px solid var(--border);
+  background: white;
 }
 
-/* Pages */
+/* ===========================
+   PAGES
+   =========================== */
 
 .page-title {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
+  color: var(--primary-dark);
 }
 
 .page-subtitle {
-  margin: 0;
   color: var(--text-soft);
   max-width: 32rem;
 }
@@ -323,12 +346,14 @@ body {
   text-align: center;
 }
 
-/* Footer */
+/* ===========================
+   FOOTER
+   =========================== */
 
 .footer {
-  border-top: 1px solid rgba(15, 23, 42, 0.9);
+  border-top: 1px solid var(--border);
   padding: 1.2rem 1.5rem 1.8rem;
-  background: rgba(3, 7, 18, 0.98);
+  background: white;
 }
 
 .footer-inner {
@@ -342,7 +367,9 @@ body {
   margin-top: 0.25rem;
 }
 
-/* Responsive */
+/* ===========================
+   RESPONSIVE
+   =========================== */
 
 @media (min-width: 640px) {
   .cards-grid {
@@ -356,7 +383,7 @@ body {
 
 @media (max-width: 800px) {
   .hero-inner {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .hero-card {
@@ -370,4 +397,51 @@ body {
   .section {
     padding-inline: 1rem;
   }
+}
+
+.mobile-call-btn {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mobile-call-btn {
+    display: inline-flex;
+  }
+}
+
+/* ===========================
+   CONTACT PAGE ICON STYLES
+   =========================== */
+
+.contact-card {
+  margin-top: 1.5rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  max-width: 450px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.4rem;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.contact-link {
+  color: var(--primary-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--primary);
 }

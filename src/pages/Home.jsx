@@ -10,8 +10,8 @@ const Home = () => {
     <>
       <HeroSection />
       <ServicesSection />
-     {/* <FleetSection />  */} 
-      <HowItWorksSection />
+     {/* <FleetSection />
+     <HowItWorksSection />  */} 
     </>
   );
 };
