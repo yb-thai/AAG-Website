@@ -2,16 +2,27 @@
 import React from "react";
 import HeroSection from "../components/home/HeroSection";
 import ServicesSection from "../components/home/ServiceSection";
-import FleetSection from "../components/home/FleetSection";
 import HowItWorksSection from "../components/home/HowItWorkSection";
+import About from "./About";
+import Contact from "./Contact";
 
 const Home = () => {
   return (
     <>
-      <HeroSection />
-      <ServicesSection />
-     {/* <FleetSection />
-     <HowItWorksSection />  */} 
+      <div id="hero">
+        <HeroSection />
+      </div>
+{/*<ServicesSection />
+      <HowItWorksSection /> */}
+      
+
+      <section id="about">
+        <About />
+      </section>
+
+      <section id="contact">
+        <Contact />
+      </section>
     </>
   );
 };

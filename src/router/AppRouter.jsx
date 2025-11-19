@@ -1,21 +1,44 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import Home from "../pages/Home";
-import About from "../pages/About";
 import Booking from "../pages/Booking";
-import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
+
+// Scroll to #id when the hash in the URL changes
+const ScrollToHash = () => {
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1); // remove '#'
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      // no hash: just scroll to top on route change
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location]);
+
+  return null;
+};
 
 const AppRouter = () => {
   return (
     <BrowserRouter basename="/AAG-Website">
+      <ScrollToHash />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
     </BrowserRouter>
