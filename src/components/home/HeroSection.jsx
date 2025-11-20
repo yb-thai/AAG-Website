@@ -5,7 +5,7 @@ import phoneIcon from "../../assets/icons/phone.png";
 
 const HeroSection = () => {
   return (
-    <section className="hero section">
+    <section id="hero" className="hero section">
       <div className="section-inner hero-inner">
         <div className="hero-text">
           <h1 className="hero-title">

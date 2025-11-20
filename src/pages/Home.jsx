@@ -9,20 +9,21 @@ import Contact from "./Contact";
 const Home = () => {
   return (
     <>
+      {/* HERO */}
       <div id="hero">
         <HeroSection />
       </div>
-{/*<ServicesSection />
+
+      {/* Optional sections if you want them back */}
+      {/* <ServicesSection />
       <HowItWorksSection /> */}
-      
 
-      <section id="about">
-        <About />
-      </section>
+      {/* Invisible anchors with offset for smooth scroll */}
+      <div id="about" className="scroll-anchor"></div>
+      <About />
 
-      <section id="contact">
-        <Contact />
-      </section>
+      <div id="contact" className="scroll-anchor"></div>
+      <Contact />
     </>
   );
 };

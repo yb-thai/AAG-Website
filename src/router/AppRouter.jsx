@@ -1,3 +1,4 @@
+// src/router/AppRouter.jsx
 import React from "react";
 import {
   BrowserRouter,
@@ -15,20 +16,28 @@ const ScrollToHash = () => {
   const location = useLocation();
 
   React.useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.substring(1); // remove '#'
+    const { hash } = location;
+
+    if (hash) {
+      const id = hash.substring(1); // remove "#"
       const el = document.getElementById(id);
+
       if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        el.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       }
     } else {
-      // no hash: just scroll to top on route change
+      // no hash -> scroll to top on route change
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location]);
 
   return null;
 };
+
+
 
 const AppRouter = () => {
   return (

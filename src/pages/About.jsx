@@ -10,7 +10,7 @@ const About = () => {
   return (
     <div className="page">
       {/* Main About content */}
-      <section className="section">
+      <section id="about"className="section">
         <div className="section-inner about-layout">
           <div className="about-text">
             <h1 className="page-title">About AAG Cabulance</h1>

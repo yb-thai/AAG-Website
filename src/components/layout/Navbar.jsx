@@ -1,6 +1,6 @@
-// src/components/layout/Navbar.jsx
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => (
   <header className="navbar">
@@ -10,21 +10,17 @@ const Navbar = () => (
         <span className="logo-sub">Non-Emergency Medical Transportation</span>
       </Link>
 
-      <nav className="navbar-links">
-        <Link to="/#hero" className="nav-link">
-          Home
-        </Link>
-        <Link to="/#about" className="nav-link">
-          About
-        </Link>
-        <Link to="/#contact" className="nav-link">
-          Contact
-        </Link>
+     <nav className="navbar-links">
+  <a href="/#hero" className="nav-link">Home</a>
+  <a href="/#about" className="nav-link">About</a>
+  <a href="/#contact" className="nav-link">Contact</a>
 
-        <NavLink to="/booking" className="nav-link nav-link-primary">
-          Book Now
-        </NavLink>
-      </nav>
+  <NavLink to="/booking" className="nav-link nav-link-primary">
+    Book Now
+  </NavLink>
+</nav>
+
+     
     </div>
   </header>
 );
