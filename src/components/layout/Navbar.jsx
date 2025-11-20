@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -9,11 +9,9 @@ const Navbar = () => {
     e.preventDefault();
 
     if (location.pathname === "/") {
-      // Already on homepage → just scroll
       const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
-      // On /booking go to home AND scroll after load
       navigate("/", { state: { scrollTo: sectionId } });
     }
   };
@@ -21,14 +19,16 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar-inner">
+
+        {/* FIXED LOGO */}
         <Link
-  to="/"
-  state={{ scrollTo: "hero" }}
-  className="navbar-logo"
->
-  <span className="logo-main">AAG Cabulance</span>
-  <span className="logo-sub">Non-Emergency Medical Transportation</span>
-</Link>
+          to="/"
+          state={{ scrollTo: "hero" }}
+          className="navbar-logo"
+        >
+          <span className="logo-main">AAG Cabulance</span>
+          <span className="logo-sub">Non-Emergency Medical Transportation</span>
+        </Link>
 
         <nav className="navbar-links">
           <a href="#hero" className="nav-link" onClick={(e) => handleNav(e, "hero")}>
