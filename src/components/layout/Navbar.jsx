@@ -1,28 +1,49 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
-const Navbar = () => (
-  <header className="navbar">
-    <div className="navbar-inner">
-      <Link to="/" className="navbar-logo">
-        <span className="logo-main">AAG Cabulance</span>
-        <span className="logo-sub">Non-Emergency Medical Transportation</span>
-      </Link>
+const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-     <nav className="navbar-links">
-  <a href="/#hero" className="nav-link">Home</a>
-  <a href="/#about" className="nav-link">About</a>
-  <a href="/#contact" className="nav-link">Contact</a>
+  const handleNav = (e, sectionId) => {
+    e.preventDefault();
 
-  <NavLink to="/booking" className="nav-link nav-link-primary">
-    Book Now
-  </NavLink>
-</nav>
+    if (location.pathname === "/") {
+      // Already on homepage → just scroll
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // On /booking go to home AND scroll after load
+      navigate("/", { state: { scrollTo: sectionId } });
+    }
+  };
 
-     
-    </div>
-  </header>
-);
+  return (
+    <header className="navbar">
+      <div className="navbar-inner">
+        <a href="/" className="navbar-logo">
+          <span className="logo-main">AAG Cabulance</span>
+          <span className="logo-sub">Non-Emergency Medical Transportation</span>
+        </a>
+
+        <nav className="navbar-links">
+          <a href="#hero" className="nav-link" onClick={(e) => handleNav(e, "hero")}>
+            Home
+          </a>
+          <a href="#about" className="nav-link" onClick={(e) => handleNav(e, "about")}>
+            About
+          </a>
+          <a href="#contact" className="nav-link" onClick={(e) => handleNav(e, "contact")}>
+            Contact
+          </a>
+
+          <NavLink to="/booking" className="nav-link nav-link-primary">
+            Book Now
+          </NavLink>
+        </nav>
+      </div>
+    </header>
+  );
+};
 
 export default Navbar;

@@ -25,7 +25,7 @@ const HeroSection = () => {
           <div className="hero-actions">
             <Button to="/booking">Book a Ride</Button>
 
-            {/* REPLACED "Learn More" WITH CALL FOR BOOKING */}
+            
             <a href="tel:8772244884" className="btn btn-primary hero-call-btn">
   <img src={phoneIcon} alt="Phone" className="call-icon" />
    (877) 224-4884

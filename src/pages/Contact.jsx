@@ -20,8 +20,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // For now, just show a thank-you message.
-    // Later we can hook this into an email/API.
     console.log("Contact request:", formData);
     setSubmitted(true);
     setFormData({
@@ -86,7 +84,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Right: Contact / callback form */}
+            {/* Right: callback form */}
             <form className="contact-form" onSubmit={handleSubmit}>
               <h2 className="contact-form-title">Request a call back</h2>
               <p className="contact-form-subtitle">

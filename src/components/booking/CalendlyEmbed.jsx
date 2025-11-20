@@ -35,7 +35,6 @@ const CalendlyEmbed = () => {
       };
     }
 
-    // Fallback: if for some reason there is no script yet, add it
     const script = document.createElement("script");
     script.src = scriptSrc;
     script.async = true;

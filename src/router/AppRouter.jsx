@@ -29,7 +29,7 @@ const ScrollToHash = () => {
         });
       }
     } else {
-      // no hash -> scroll to top on route change
+     
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location]);
