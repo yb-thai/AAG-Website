@@ -21,10 +21,14 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar-inner">
-        <a href="/" className="navbar-logo">
-          <span className="logo-main">AAG Cabulance</span>
-          <span className="logo-sub">Non-Emergency Medical Transportation</span>
-        </a>
+        <Link
+  to="/"
+  state={{ scrollTo: "hero" }}
+  className="navbar-logo"
+>
+  <span className="logo-main">AAG Cabulance</span>
+  <span className="logo-sub">Non-Emergency Medical Transportation</span>
+</Link>
 
         <nav className="navbar-links">
           <a href="#hero" className="nav-link" onClick={(e) => handleNav(e, "hero")}>
