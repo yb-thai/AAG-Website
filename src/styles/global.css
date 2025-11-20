@@ -1028,4 +1028,8 @@ body {
   }
 }
 
+.nav-link {
+  -webkit-tap-highlight-color: transparent; /* removes circle shadow on iOS */
+}
+
 
