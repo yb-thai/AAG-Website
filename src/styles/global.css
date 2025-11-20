@@ -727,10 +727,10 @@ body {
   }
 
   /* Each slide takes most of the viewport width */
-  .mobile-slide {
-    flex: 0 0 80%;              /* ~80% of screen width */
-    scroll-snap-align: center;  /* snap to center */
-  }
+.mobile-slide {
+  flex: 0 0 auto;
+  width: 85%;  /* cleaner */
+}
 
   .mobile-slide img {
     width: 100%;
@@ -759,7 +759,20 @@ body {
     display: none;            /* Chrome, Safari, Edge */
   }
 
+.mobile-slider,
+.mobile-slider-inner {
+  -webkit-overflow-scrolling: touch;
 }
+
+
+}
+
+@media (max-width: 768px) {
+  .page {
+    overflow-x: visible !important;
+  }
+}
+
 }
 
 /* ===========================
