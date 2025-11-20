@@ -1,30 +1,22 @@
-import { motion } from "framer-motion";
-import React, { useRef } from "react";
+// src/components/about/MobileGallerySlider.jsx
+import React from "react";
 
 const MobileGallerySlider = ({ items }) => {
-  const containerRef = useRef(null);
+  if (!items || items.length === 0) return null;
 
   return (
-    <motion.div
-      className="mobile-slider"
-      ref={containerRef}
-      whileTap={{ cursor: "grabbing" }}
-    >
-      <motion.div
-        className="mobile-slider-inner"
-        drag="x"
-        dragConstraints={{ left: -((items.length - 1) * 260), right: 0 }}
-        dragElastic={0.1}
-        transition={{ type: "spring", stiffness: 120, damping: 20 }}
-      >
+    <div className="mobile-slider">
+      <div className="mobile-slider-inner">
         {items.map((item, index) => (
           <div className="mobile-slide" key={index}>
-            <img src={item.src} alt={item.alt} />
-            {item.caption && <p className="mobile-caption">{item.caption}</p>}
+            <img src={item.src} alt={item.alt || item.caption || ""} />
+            {item.caption && (
+              <p className="mobile-caption">{item.caption}</p>
+            )}
           </div>
         ))}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 

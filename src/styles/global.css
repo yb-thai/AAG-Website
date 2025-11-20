@@ -710,29 +710,35 @@ body {
     display: block;
   }
 
+  /* Outer scroll container */
   .mobile-slider {
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     margin-top: 1.5rem;
+    -webkit-overflow-scrolling: touch; /* smooth momentum scroll on iOS */
+    scroll-snap-type: x mandatory;     /* snap to each slide */
   }
 
+  /* Horizontal strip */
   .mobile-slider-inner {
     display: flex;
     gap: 1rem;
+    padding: 0 1rem 0.5rem;
   }
 
+  /* Each slide takes most of the viewport width */
   .mobile-slide {
-    min-width: 260px;
-    max-width: 260px;
+    flex: 0 0 80%;              /* ~80% of screen width */
+    scroll-snap-align: center;  /* snap to center */
   }
 
   .mobile-slide img {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    height: auto;
+    display: block;
     border-radius: 14px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow-soft);
-    display: block;
   }
 
   .mobile-caption {
@@ -741,6 +747,19 @@ body {
     color: var(--text-soft);
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+
+  /* Hide scrollbar (cross-browser) */
+  .mobile-slider {
+    scrollbar-width: none;    /* Firefox */
+  }
+
+  .mobile-slider::-webkit-scrollbar {
+    display: none;            /* Chrome, Safari, Edge */
+  }
+
+}
 }
 
 /* ===========================
@@ -784,6 +803,17 @@ body {
   top: -90px;
   height: 0;
 }
+
+@media (max-width: 768px) {
+  /* Make hero scroll lower so it isn't hidden behind the navbar */
+  #hero {
+    scroll-margin-top: 140px;  /* tweak this number to match your navbar height */
+  }
+  #about {
+    scroll-margin-top: 60px;  /* tweak this number to match your navbar height */
+  }
+}
+
 
 /* Map link inline styling */
 .map-link {
@@ -842,7 +872,7 @@ body {
 /* ≤ 768px: main mobile layout */
 @media (max-width: 768px) {
   .section {
-    padding: 1.75rem 1rem 2.25rem;
+    padding: 1.75rem 1rem 2rem;
   }
 
   .page {
@@ -972,3 +1002,17 @@ body {
     font-size: 0.9rem;
   }
 }
+
+@media (max-width: 768px) {
+  /* Move ABOUT content up on the Home page */
+  #about.scroll-anchor + .page {
+    margin-top: -6rem;
+  }
+
+  /* Move CONTACT content up on the Home page */
+  #contact.scroll-anchor + .page {
+    margin-top: -2rem;
+  }
+}
+
+
