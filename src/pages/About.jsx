@@ -1,6 +1,7 @@
-// src/pages/About.jsx
+
 import React from "react";
-// 🔹 Update these paths to match your actual image files in src/assets
+import GallerySlider from "../components/about/GallerySlider";
+import MobileGallerySlider from "../components/about/MobileGallerySlider";
 import vanExterior from "../assets/images/photo-043.png";
 import vanInterior from "../assets/images/photo-047.png";
 import driverAssist from "../assets/images/photo-054.jpg";
@@ -74,38 +75,82 @@ const About = () => {
         </div>
       </section>
 
-      {/* Photo Gallery */}
-      <section className="section section-alt">
-        <div className="section-inner">
-          <h2 className="section-title">Our vehicles & service in action</h2>
-          <p className="page-subtitle">
-            A look at the type of vehicles we operate and the level of care our
-            drivers provide on every trip.
-          </p>
+{/* Photo Gallery */}
+<section className="section section-alt">
+  <div className="section-inner">
+    <h2 className="section-title">Our vehicles &amp; service in action</h2>
+    <p className="page-subtitle">
+      A look at the type of vehicles we operate and the level of care our
+      drivers provide on every trip.
+    </p>
 
-          <div className="gallery-grid">
-            <figure className="gallery-item">
-              <img src={vanExterior} alt="AAG cabulance vehicle parked curbside" />
-              <figcaption>Clean, clearly marked vehicles for easy pickup. - need a new picture</figcaption>
-            </figure>
+    {/* DESKTOP GRID */}
+    <div className="desktop-only">
+      <div className="gallery-grid gallery-grid--center">
+        <figure className="gallery-item">
+          <img src={vanExterior} alt="AAG cabulance vehicle parked curbside" />
+          <figcaption>
+            Clean, clearly marked vehicles for easy pickup.
+          </figcaption>
+        </figure>
 
-            <figure className="gallery-item">
-              <img src={vanInterior} alt="Interior of accessible cabulance van" />
-              <figcaption>Spacious interiors for wheelchairs and mobility aids. - - need a new picture</figcaption>
-            </figure>
+        <figure className="gallery-item">
+          <img src={vanInterior} alt="Interior of accessible cabulance van" />
+          <figcaption>
+            Spacious interiors for wheelchairs and mobility aids.
+          </figcaption>
+        </figure>
 
-            <figure className="gallery-item">
-              <img src={driverAssist} alt="Driver assisting passenger safely" />
-              <figcaption>Trained drivers providing door-to-door assistance.</figcaption>
-            </figure>
+        <figure className="gallery-item">
+          <img src={driverAssist} alt="Driver assisting passenger safely" />
+          <figcaption>
+            Trained drivers providing door-to-door assistance.
+          </figcaption>
+        </figure>
 
-            <figure className="gallery-item">
-              <img src={patientRide} alt="Passenger seated comfortably during ride" />
-              <figcaption>Comfortable rides for medical and personal appointments.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
+        <figure className="gallery-item">
+          <img src={patientRide} alt="Passenger seated comfortably during ride" />
+          <figcaption>
+            Comfortable rides for medical and personal appointments.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    {/* MOBILE SLIDER */}
+    <div className="mobile-only">
+      <MobileGallerySlider
+        items={[
+          {
+            src: vanExterior,
+            alt: "AAG cabulance vehicle parked curbside",
+            caption: "Clean, clearly marked vehicles for easy pickup.",
+          },
+          {
+            src: vanInterior,
+            alt: "Interior of accessible cabulance van",
+            caption: "Spacious interiors for wheelchairs and mobility aids.",
+          },
+          {
+            src: driverAssist,
+            alt: "Driver assisting passenger safely",
+            caption: "Trained drivers providing door-to-door assistance.",
+          },
+          {
+            src: patientRide,
+            alt: "Passenger seated comfortably during ride",
+            caption:
+              "Comfortable rides for medical and personal appointments.",
+          },
+        ]}
+      />
+    </div>
+  </div>
+</section>
+
+
+
+
     </div>
   );
 };
