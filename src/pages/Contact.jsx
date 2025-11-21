@@ -32,7 +32,7 @@ const Contact = () => {
 
   return (
     <div className="page">
-      <section id="contact"className="section">
+      <section id="contact" className="section">
         <div className="section-inner">
           <h1 className="page-title">Contact Us</h1>
           <p className="page-subtitle">
@@ -78,9 +78,16 @@ const Contact = () => {
               {/* Phone */}
               <div className="contact-row">
                 <span className="contact-icon">📞</span>
-                <a href="tel:8772244884" className="contact-link">
+                <a
+                  href="tel:+18772244884"
+                  className="contact-link"
+                  onClick={() => {
+                    window.location.href = "tel:+18772244884";
+                  }}
+                >
                   (877) 224-4884
                 </a>
+
               </div>
             </div>
 
